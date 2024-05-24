@@ -42,9 +42,8 @@ final class SetLocaleMiddleware implements MiddlewareInterface
         $locale       = null;
 
         if (
-            array_key_exists('HTTP_ACCEPT_LANGUAGE', $serverParams) && is_string(
-                $serverParams['HTTP_ACCEPT_LANGUAGE'],
-            )
+            array_key_exists('HTTP_ACCEPT_LANGUAGE', $serverParams)
+            && is_string($serverParams['HTTP_ACCEPT_LANGUAGE'])
         ) {
             $locale = Locale::acceptFromHttp($serverParams['HTTP_ACCEPT_LANGUAGE']);
         }
