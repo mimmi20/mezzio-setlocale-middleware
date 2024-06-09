@@ -52,7 +52,12 @@ final class SetLocaleMiddleware implements MiddlewareInterface
             $locale = $this->defaultLocale ?: $this->fallbackLocale;
         }
 
-        $locale   = Locale::canonicalize($locale);
+        $locale = Locale::canonicalize($locale);
+
+        if (!is_string($locale)) {
+            $locale = $this->fallbackLocale;
+        }
+
         $language = Locale::getPrimaryLanguage($locale);
 
         $request = $request->withAttribute('language', $language);
