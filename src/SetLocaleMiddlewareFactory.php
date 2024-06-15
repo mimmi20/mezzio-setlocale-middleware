@@ -16,14 +16,13 @@ use Laminas\I18n\Translator\Translator;
 use Laminas\I18n\Translator\TranslatorInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Server\MiddlewareInterface;
 
 use function assert;
 
 final class SetLocaleMiddlewareFactory
 {
     /** @throws ContainerExceptionInterface */
-    public function __invoke(ContainerInterface $container): MiddlewareInterface
+    public function __invoke(ContainerInterface $container): SetLocaleMiddleware
     {
         $translator = $container->get(TranslatorInterface::class);
 
