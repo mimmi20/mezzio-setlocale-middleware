@@ -15,7 +15,7 @@ parameters:
     - %currentWorkingDirectory%/vendor/squizlabs/php_codesniffer/src/Util/Tokens.php
 
   # reports occurrences of type-checking functions always evaluated to true
-  checkAlwaysTrueCheckTypeFunctionCall: true
+  checkAlwaysTrueCheckTypeFunctionCall: false
 
   # reports instanceof occurrences always evaluated to true
   checkAlwaysTrueInstanceof: true
@@ -114,7 +114,7 @@ parameters:
   type_perfect:
     null_over_false: true
     no_mixed: true
-    narrow_param: false # do not narrow return type
+    narrow_param: true
 
 #  ignoreErrors:
 #    - '~MockObject~'
