@@ -114,7 +114,7 @@ parameters:
   type_perfect:
     null_over_false: true
     no_mixed: true
-    narrow_param: false
+    narrow_param: false # do not narrow return type
 
 #  ignoreErrors:
 #    - '~MockObject~'
