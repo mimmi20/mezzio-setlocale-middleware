@@ -24,8 +24,9 @@ use function is_string;
 
 final class SetLocaleMiddleware implements MiddlewareInterface
 {
+    private const FALLBACK_LOCALE = 'de_DE';
+
     private string | null $defaultLocale = null;
-    private string $fallbackLocale       = 'de_DE';
 
     /** @throws void */
     public function __construct(private readonly Translator $translator, string | null $defaultLocale = null)
@@ -49,13 +50,13 @@ final class SetLocaleMiddleware implements MiddlewareInterface
         }
 
         if (!is_string($locale)) {
-            $locale = $this->defaultLocale ?: $this->fallbackLocale;
+            $locale = $this->defaultLocale ?: self::FALLBACK_LOCALE;
         }
 
         $locale = Locale::canonicalize($locale);
 
         if (!is_string($locale)) {
-            $locale = $this->fallbackLocale;
+            $locale = self::FALLBACK_LOCALE;
         }
 
         $language = Locale::getPrimaryLanguage($locale);
