@@ -21,6 +21,8 @@ use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use ReflectionException;
+use ReflectionProperty;
 
 use function assert;
 
@@ -29,6 +31,7 @@ final class SetLocaleMiddlewareFactoryTest extends TestCase
     /**
      * @throws Exception
      * @throws ContainerExceptionInterface
+     * @throws ReflectionException
      */
     public function testInvoke(): void
     {
@@ -50,6 +53,10 @@ final class SetLocaleMiddlewareFactoryTest extends TestCase
         $result = $factory($container);
 
         self::assertInstanceOf(SetLocaleMiddleware::class, $result);
+
+        $dL = new ReflectionProperty($result, 'defaultLocale');
+
+        self::assertSame('de_DE', $dL->getValue($result));
     }
 
     /**
