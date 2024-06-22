@@ -116,8 +116,8 @@ parameters:
     no_mixed: true
     narrow_param: true
 
-#  ignoreErrors:
-#    - '~MockObject~'
+  ignoreErrors:
+    - '~Dead catch - IntlException is never thrown in the try block~'
 
 rules:
   # code complexity

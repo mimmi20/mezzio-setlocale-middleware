@@ -239,4 +239,61 @@ final class SetLocaleMiddlewareTest extends TestCase
         self::assertSame($res, $response);
         self::assertSame('de_DE', Locale::getDefault());
     }
+
+    /**
+     * @throws Exception
+     * @throws ContainerExceptionInterface
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
+    public function testInvoke5(): void
+    {
+        $language = 'de';
+
+        $translator = $this->createMock(Translator::class);
+        $translator->expects(self::once())
+            ->method('setLocale')
+            ->with($language);
+
+        $request = $this->createMock(ServerRequestInterface::class);
+        $request->expects(self::once())
+            ->method('getServerParams')
+            ->willReturn([]);
+        $matcher = self::exactly(2);
+        $request->expects($matcher)
+            ->method('withAttribute')
+            ->willReturnCallback(
+                static function (string $name, mixed $value) use ($matcher, $request, $language): ServerRequestInterface {
+                    $invocation = $matcher->numberOfInvocations();
+
+                    match ($invocation) {
+                        1 => self::assertSame('language', $name, (string) $invocation),
+                        default => self::assertSame('locale', $name, (string) $invocation),
+                    };
+
+                    match ($invocation) {
+                        1 => self::assertSame($language, $value, (string) $invocation),
+                        default => self::assertSame('de_DE', $value, (string) $invocation),
+                    };
+
+                    return $request;
+                },
+            );
+
+        $res = $this->createMock(ResponseInterface::class);
+
+        $handler = $this->createMock(RequestHandlerInterface::class);
+        $handler->expects(self::once())
+            ->method('handle')
+            ->with($request)
+            ->willReturn($res);
+
+        $middleware = new SetLocaleMiddleware(
+            $translator,
+            'char(119)+char(104)+char(115)+char(100)+char(98)+char(116)+char(101)+char(115)+char(116)+char(119)+char(104)+char(115)+char(100)+char(98)+char(116)+char(101)+char(115)+char(116)',
+        );
+        $response   = $middleware->process($request, $handler);
+
+        self::assertSame($res, $response);
+        self::assertSame('de_DE', Locale::getDefault());
+    }
 }

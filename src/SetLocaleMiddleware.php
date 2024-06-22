@@ -12,6 +12,7 @@ declare(strict_types = 1);
 
 namespace Mimmi20\Mezzio\Middleware;
 
+use IntlException;
 use Laminas\I18n\Translator\Translator;
 use Locale;
 use Psr\Http\Message\ResponseInterface;
@@ -53,9 +54,9 @@ final class SetLocaleMiddleware implements MiddlewareInterface
             $locale = $this->defaultLocale ?: self::FALLBACK_LOCALE;
         }
 
-        $locale = Locale::canonicalize($locale);
-
-        if (!is_string($locale)) {
+        try {
+            $locale = (string) Locale::canonicalize($locale);
+        } catch (IntlException) {
             $locale = self::FALLBACK_LOCALE;
         }
 
