@@ -9,7 +9,7 @@
 [![codecov](https://codecov.io/gh/mimmi20/mezzio-setlocale-middleware/branch/master/graph/badge.svg)](https://codecov.io/gh/mimmi20/mezzio-setlocale-middleware)
 [![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/mimmi20/mezzio-setlocale-middleware.svg)](https://isitmaintained.com/project/mimmi20/mezzio-setlocale-middleware "Average time to resolve an issue")
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/mimmi20/mezzio-setlocale-middleware.svg)](https://isitmaintained.com/project/mimmi20/mezzio-setlocale-middleware "Percentage of issues still open")
-[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fmimmi20%2Ftemplate%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/mimmi20/mezzio-setlocale-middleware/master)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fmimmi20%2Fmezzio-setlocale-middleware%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/mimmi20/mezzio-setlocale-middleware/master)
 
 ## Requirements
 
