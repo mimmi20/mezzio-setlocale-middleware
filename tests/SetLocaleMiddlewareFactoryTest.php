@@ -14,7 +14,7 @@ namespace Mimmi20Test\Mezzio\Middleware;
 
 use AssertionError;
 use Laminas\I18n\Translator\Translator;
-use Laminas\I18n\Translator\TranslatorInterface;
+use Laminas\Translator\TranslatorInterface;
 use Mimmi20\Mezzio\Middleware\SetLocaleMiddleware;
 use Mimmi20\Mezzio\Middleware\SetLocaleMiddlewareFactory;
 use PHPUnit\Framework\Exception;
