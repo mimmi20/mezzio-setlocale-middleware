@@ -13,7 +13,7 @@ declare(strict_types = 1);
 namespace Mimmi20\Mezzio\Middleware;
 
 use Laminas\I18n\Translator\Translator;
-use Laminas\I18n\Translator\TranslatorInterface;
+use Laminas\Translator\TranslatorInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 
