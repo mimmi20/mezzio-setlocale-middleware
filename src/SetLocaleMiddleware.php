@@ -15,6 +15,7 @@ namespace Mimmi20\Mezzio\Middleware;
 use IntlException;
 use Laminas\I18n\Translator\Translator;
 use Locale;
+use Override;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -25,7 +26,7 @@ use function is_string;
 
 final class SetLocaleMiddleware implements MiddlewareInterface
 {
-    private const FALLBACK_LOCALE = 'de_DE';
+    private const string FALLBACK_LOCALE = 'de_DE';
 
     private string | null $defaultLocale = null;
 
@@ -38,6 +39,7 @@ final class SetLocaleMiddleware implements MiddlewareInterface
     }
 
     /** @throws void */
+    #[Override]
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $serverParams = $request->getServerParams();
