@@ -15,25 +15,15 @@ namespace Mimmi20Test\Mezzio\Middleware;
 
 use Mimmi20\Mezzio\Middleware\ConfigProvider;
 use Mimmi20\Mezzio\Middleware\SetLocaleMiddleware;
-use Override;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 
 final class ConfigProviderTest extends TestCase
 {
-    private ConfigProvider $provider;
-
-    /** @throws void */
-    #[Override]
-    protected function setUp(): void
-    {
-        $this->provider = new ConfigProvider();
-    }
-
     /** @throws Exception */
     public function testProviderDefinesExpectedFactoryServices(): void
     {
-        $dependencies = $this->provider->getDependencyConfig();
+        $dependencies = (new ConfigProvider())->getDependencyConfig();
         self::assertArrayHasKey('factories', $dependencies);
 
         $factories = $dependencies['factories'];
@@ -44,7 +34,7 @@ final class ConfigProviderTest extends TestCase
     /** @throws Exception */
     public function testInvocationReturnsArrayWithDependencies(): void
     {
-        $config = ($this->provider)();
+        $config = (new ConfigProvider())();
 
         self::assertArrayHasKey('dependencies', $config);
 

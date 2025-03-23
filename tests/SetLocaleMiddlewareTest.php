@@ -16,6 +16,7 @@ namespace Mimmi20Test\Mezzio\Middleware;
 use Laminas\I18n\Translator\Translator;
 use Locale;
 use Mimmi20\Mezzio\Middleware\SetLocaleMiddleware;
+use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
@@ -29,6 +30,7 @@ final class SetLocaleMiddlewareTest extends TestCase
      * @throws Exception
      * @throws ContainerExceptionInterface
      * @throws \PHPUnit\Framework\MockObject\Exception
+     * @throws NoPreviousThrowableException
      */
     public function testInvoke(): void
     {
@@ -83,6 +85,7 @@ final class SetLocaleMiddlewareTest extends TestCase
      * @throws Exception
      * @throws ContainerExceptionInterface
      * @throws \PHPUnit\Framework\MockObject\Exception
+     * @throws NoPreviousThrowableException
      */
     public function testInvoke2(): void
     {
@@ -137,6 +140,7 @@ final class SetLocaleMiddlewareTest extends TestCase
      * @throws Exception
      * @throws ContainerExceptionInterface
      * @throws \PHPUnit\Framework\MockObject\Exception
+     * @throws NoPreviousThrowableException
      */
     public function testInvoke3(): void
     {
@@ -191,6 +195,7 @@ final class SetLocaleMiddlewareTest extends TestCase
      * @throws Exception
      * @throws ContainerExceptionInterface
      * @throws \PHPUnit\Framework\MockObject\Exception
+     * @throws NoPreviousThrowableException
      */
     public function testInvoke4(): void
     {
@@ -245,6 +250,7 @@ final class SetLocaleMiddlewareTest extends TestCase
      * @throws Exception
      * @throws ContainerExceptionInterface
      * @throws \PHPUnit\Framework\MockObject\Exception
+     * @throws NoPreviousThrowableException
      */
     public function testInvoke5(): void
     {

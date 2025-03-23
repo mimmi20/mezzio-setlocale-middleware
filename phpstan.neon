@@ -109,7 +109,7 @@ parameters:
 
   ignoreErrors:
     - '~Dead catch~'
-    - '~will always evaluate to true~'
+#    - '~will always evaluate to true~'
 
 rules:
   # code complexity
