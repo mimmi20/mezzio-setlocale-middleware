@@ -18,6 +18,7 @@ use Laminas\I18n\Translator\Translator;
 use Laminas\Translator\TranslatorInterface;
 use Mimmi20\Mezzio\Middleware\SetLocaleMiddleware;
 use Mimmi20\Mezzio\Middleware\SetLocaleMiddlewareFactory;
+use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
@@ -33,6 +34,8 @@ final class SetLocaleMiddlewareFactoryTest extends TestCase
      * @throws Exception
      * @throws ContainerExceptionInterface
      * @throws ReflectionException
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testInvoke(): void
     {
@@ -63,6 +66,8 @@ final class SetLocaleMiddlewareFactoryTest extends TestCase
     /**
      * @throws Exception
      * @throws ContainerExceptionInterface
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testInvokeFailed(): void
     {
