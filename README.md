@@ -18,7 +18,8 @@ and [PSR-7](https://www.php-fig.org/psr/psr-7/) applications to set the locale a
 
 ## Requirements
 
-This library requires 
+This library requires
+
 - PHP 8.3+.
 - a translator
 
@@ -30,7 +31,7 @@ Run
 composer require mimmi20/mezzio-setlocale-middleware
 ```
 
-#### Add the Middleware to the pipeline
+## Add the Middleware to the pipeline
 
 ```php
 <?php
