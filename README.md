@@ -11,9 +11,16 @@
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/mimmi20/mezzio-setlocale-middleware.svg)](https://isitmaintained.com/project/mimmi20/mezzio-setlocale-middleware "Percentage of issues still open")
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fmimmi20%2Fmezzio-setlocale-middleware%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/mimmi20/mezzio-setlocale-middleware/master)
 
+## Introduction
+
+This component provides middleware for [Mezzio](https://github.com/mezzio/mezzio)
+and [PSR-7](https://www.php-fig.org/psr/psr-7/) applications to set the locale and the language for a translator based on the `HTTP_ACCEPT_LANGUAGE` Header.
+
 ## Requirements
 
-This library requires PHP 8.1+.
+This library requires 
+- PHP 8.3+.
+- a translator
 
 ## Installation
 
@@ -21,6 +28,29 @@ Run
 
 ```shell
 composer require mimmi20/mezzio-setlocale-middleware
+```
+
+#### Add the Middleware to the pipeline
+
+```php
+<?php
+return [
+    'middleware' => [
+        // ...
+        \Mimmi20\Mezzio\Middleware\SetLocaleMiddleware::class, // <-- Add this line
+        // ... <-- any middleware or request handler wich uses the translator
+    ],
+];
+```
+
+If you need the Translator for the Routing, you have to add the Middleware in the Pipeline before the Routing.
+
+```php
+    $app->pipe(\Mimmi20\Mezzio\Middleware\SetLocaleMiddleware::class); // <-- Add this line
+
+    // Register the routing middleware in the middleware pipeline.
+    // This middleware registers the Mezzio\Router\RouteResult request attribute.
+    $app->pipe(RouteMiddleware::class);
 ```
 
 ## License
