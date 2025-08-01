@@ -1,4 +1,4 @@
-# template
+# mezzio-setlocale-middleware
 
 [![Latest Stable Version](https://poser.pugx.org/mimmi20/mezzio-setlocale-middleware/v/stable?format=flat-square)](https://packagist.org/packages/mimmi20/mezzio-setlocale-middleware)
 [![Latest Unstable Version](https://poser.pugx.org/mimmi20/mezzio-setlocale-middleware/v/unstable?format=flat-square)](https://packagist.org/packages/mimmi20/mezzio-setlocale-middleware)
