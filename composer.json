@@ -1,6 +1,6 @@
 {
   "name": "mimmi20/mezzio-setlocale-middleware",
-  "description": "Provides a Middleware to set set the Locale",
+  "description": "Provides a Middleware to set the Locale and the language to a translator",
   "license": "MIT",
   "type": "library",
   "authors": [
