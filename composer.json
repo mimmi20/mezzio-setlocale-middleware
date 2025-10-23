@@ -22,8 +22,8 @@
   "require": {
     "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
     "ext-intl": "*",
-    "laminas/laminas-i18n": "^2.30.0",
-    "laminas/laminas-translator": "^1.1.0",
+    "laminas/laminas-i18n": "^2.31.0",
+    "laminas/laminas-translator": "^1.2.0",
     "psr/container": "^1.1.2 || ^2.0.2",
     "psr/http-message": "^1.0.1 || ^2.0",
     "psr/http-server-handler": "^1.0.2",
