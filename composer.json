@@ -20,7 +20,7 @@
     "source": "https://github.com/mimmi20/mezzio-setlocale-middleware"
   },
   "require": {
-    "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
+    "php": "~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
     "ext-intl": "*",
     "laminas/laminas-i18n": "^2.32.1",
     "laminas/laminas-translator": "^1.3.0",
@@ -36,7 +36,9 @@
     "ext-tokenizer": "*",
     "ext-xml": "*",
     "ext-xmlwriter": "*",
+    "ergebnis/composer-normalize": "^2.50.0",
     "infection/infection": "^0.32.6",
+    "jbelien/phpstan-sarif-formatter": "^1.2.0",
     "mimmi20/coding-standard": "^6.2.5",
     "nikic/php-parser": "^5.7.0",
     "phpstan/extension-installer": "^1.4.3",
@@ -67,6 +69,7 @@
   "config": {
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true,
+      "ergebnis/composer-normalize": true,
       "infection/extension-installer": true,
       "phpstan/extension-installer": true
     },
@@ -77,6 +80,10 @@
   "extra": {
     "laminas": {
       "config-provider": "Mimmi20\\Mezzio\\Middleware\\ConfigProvider"
+    },
+    "composer-normalize": {
+      "indent-size": 2,
+      "indent-style": "space"
     }
   }
 }
