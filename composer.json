@@ -78,12 +78,12 @@
     "sort-packages": true
   },
   "extra": {
-    "laminas": {
-      "config-provider": "Mimmi20\\Mezzio\\Middleware\\ConfigProvider"
-    },
     "composer-normalize": {
       "indent-size": 2,
       "indent-style": "space"
+    },
+    "laminas": {
+      "config-provider": "Mimmi20\\Mezzio\\Middleware\\ConfigProvider"
     }
   }
 }
