@@ -16,22 +16,15 @@ namespace Mimmi20Test\Mezzio\Middleware;
 use Laminas\I18n\Translator\Translator;
 use Locale;
 use Mimmi20\Mezzio\Middleware\SetLocaleMiddleware;
-use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
-use Psr\Container\ContainerExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 final class SetLocaleMiddlewareTest extends TestCase
 {
-    /**
-     * @throws Exception
-     * @throws ContainerExceptionInterface
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     * @throws NoPreviousThrowableException
-     */
+    /** @throws Exception */
     public function testInvoke(): void
     {
         $language = 'en';
@@ -66,7 +59,7 @@ final class SetLocaleMiddlewareTest extends TestCase
                 },
             );
 
-        $res = $this->createMock(ResponseInterface::class);
+        $res = self::createStub(ResponseInterface::class);
 
         $handler = $this->createMock(RequestHandlerInterface::class);
         $handler->expects(self::once())
@@ -81,12 +74,7 @@ final class SetLocaleMiddlewareTest extends TestCase
         self::assertSame('en_US', Locale::getDefault());
     }
 
-    /**
-     * @throws Exception
-     * @throws ContainerExceptionInterface
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     * @throws NoPreviousThrowableException
-     */
+    /** @throws Exception */
     public function testInvoke2(): void
     {
         $language = 'fr';
@@ -121,7 +109,7 @@ final class SetLocaleMiddlewareTest extends TestCase
                 },
             );
 
-        $res = $this->createMock(ResponseInterface::class);
+        $res = self::createStub(ResponseInterface::class);
 
         $handler = $this->createMock(RequestHandlerInterface::class);
         $handler->expects(self::once())
@@ -136,12 +124,7 @@ final class SetLocaleMiddlewareTest extends TestCase
         self::assertSame('fr_FR', Locale::getDefault());
     }
 
-    /**
-     * @throws Exception
-     * @throws ContainerExceptionInterface
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     * @throws NoPreviousThrowableException
-     */
+    /** @throws Exception */
     public function testInvoke3(): void
     {
         $language = 'fr';
@@ -176,7 +159,7 @@ final class SetLocaleMiddlewareTest extends TestCase
                 },
             );
 
-        $res = $this->createMock(ResponseInterface::class);
+        $res = self::createStub(ResponseInterface::class);
 
         $handler = $this->createMock(RequestHandlerInterface::class);
         $handler->expects(self::once())
@@ -191,12 +174,7 @@ final class SetLocaleMiddlewareTest extends TestCase
         self::assertSame('fr_FR', Locale::getDefault());
     }
 
-    /**
-     * @throws Exception
-     * @throws ContainerExceptionInterface
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     * @throws NoPreviousThrowableException
-     */
+    /** @throws Exception */
     public function testInvoke4(): void
     {
         $language = 'de';
@@ -231,7 +209,7 @@ final class SetLocaleMiddlewareTest extends TestCase
                 },
             );
 
-        $res = $this->createMock(ResponseInterface::class);
+        $res = self::createStub(ResponseInterface::class);
 
         $handler = $this->createMock(RequestHandlerInterface::class);
         $handler->expects(self::once())
@@ -246,12 +224,7 @@ final class SetLocaleMiddlewareTest extends TestCase
         self::assertSame('de_DE', Locale::getDefault());
     }
 
-    /**
-     * @throws Exception
-     * @throws ContainerExceptionInterface
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     * @throws NoPreviousThrowableException
-     */
+    /** @throws Exception */
     public function testInvoke5(): void
     {
         $language = 'de';
@@ -286,7 +259,7 @@ final class SetLocaleMiddlewareTest extends TestCase
                 },
             );
 
-        $res = $this->createMock(ResponseInterface::class);
+        $res = self::createStub(ResponseInterface::class);
 
         $handler = $this->createMock(RequestHandlerInterface::class);
         $handler->expects(self::once())
