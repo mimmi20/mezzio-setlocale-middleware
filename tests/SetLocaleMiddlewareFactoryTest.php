@@ -18,7 +18,6 @@ use Laminas\I18n\Translator\Translator;
 use Laminas\Translator\TranslatorInterface;
 use Mimmi20\Mezzio\Middleware\SetLocaleMiddleware;
 use Mimmi20\Mezzio\Middleware\SetLocaleMiddlewareFactory;
-use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
@@ -34,12 +33,10 @@ final class SetLocaleMiddlewareFactoryTest extends TestCase
      * @throws Exception
      * @throws ContainerExceptionInterface
      * @throws ReflectionException
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testInvoke(): void
     {
-        $translator = $this->createMock(Translator::class);
+        $translator = self::createStub(Translator::class);
 
         $container = $this->getMockBuilder(ContainerInterface::class)
             ->disableOriginalConstructor()
@@ -66,12 +63,10 @@ final class SetLocaleMiddlewareFactoryTest extends TestCase
     /**
      * @throws Exception
      * @throws ContainerExceptionInterface
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testInvokeFailed(): void
     {
-        $translator = $this->createMock(TranslatorInterface::class);
+        $translator = self::createStub(TranslatorInterface::class);
 
         $container = $this->getMockBuilder(ContainerInterface::class)
             ->disableOriginalConstructor()
